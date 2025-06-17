@@ -9,6 +9,6 @@ namespace SpaceExplorer.API.Data
 
         public DbSet<Planet> Planets { get; set; }
         
-        public DbSet<User> Users { get;}
+        public DbSet<User> Users { get; set; }
     }
 }
