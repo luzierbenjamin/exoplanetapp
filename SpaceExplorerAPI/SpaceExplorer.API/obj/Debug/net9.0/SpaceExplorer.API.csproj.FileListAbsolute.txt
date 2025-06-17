@@ -148,3 +148,11 @@ C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\
 C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

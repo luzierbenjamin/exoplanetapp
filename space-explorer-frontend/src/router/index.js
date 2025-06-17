@@ -12,3 +12,12 @@ export const router = createRouter({
     history: createWebHistory(),
     routes
 });
+
+router.beforeEach((to, from, next) => {
+    const isAuthenticated = !!localStorage.getITem('token')
+    if(to.path !== '/login' && !isAuthenticated) {
+        next('/login')
+    } else {
+        next()
+    }
+})
