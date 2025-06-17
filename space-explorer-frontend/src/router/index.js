@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vuew-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 import Login from '../views/Login.vue';
 
@@ -14,7 +14,7 @@ export const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const isAuthenticated = !!localStorage.getITem('token')
+    const isAuthenticated = !!localStorage.getItem('token')
     if(to.path !== '/login' && !isAuthenticated) {
         next('/login')
     } else {

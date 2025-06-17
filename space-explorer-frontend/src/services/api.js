@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost5000/api',
+    baseURL: 'http://localhost:5000/api',
 })
 
 export const login = async (email, password) => {
@@ -23,7 +23,7 @@ api.interceptors.request.use((config) => {
 
 export const fetchPlanets = async () => {
     const response = await api.get('/planets')
-    return repsonse.data
+    return response.data
 }
 
 export default api

@@ -36,6 +36,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=spaceexplorer.db"));
 builder.Services.AddHttpClient<NasaDataService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy => policy
+            .WithOrigins("http://localhost:5173") 
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 
 var app = builder.Build();
 
@@ -55,6 +64,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 
 var summaries = new[]
