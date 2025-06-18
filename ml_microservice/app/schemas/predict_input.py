@@ -14,7 +14,7 @@ class AtmospherePredictRequest(BaseModel):
     orbitalPeriod: float
     planetType: str
 
-class AtmospherePredict(BaseModel):
+class AtmospherePredictResponse(BaseModel):
     atmosphere: str
 
 class WaterPredictRequest(BaseModel):
@@ -35,5 +35,5 @@ class BioScorePredictRequest(BaseModel):
     atmosphere: str
     waterLikelihood: float
 
-class BioScorePredictionResponse(BaseModel):
+class BioScorePredictResponse(BaseModel):
     bioScore: float

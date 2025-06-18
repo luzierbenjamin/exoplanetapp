@@ -19,6 +19,7 @@ X = np.array([
 ])
 y = np.array([0.95, 0.2, 0.4, 0.9, 0.3])
 
+model = GradientBoostingRegressor()
 model.fit(X, y)
 
 def predict_bioscore(mass, radius, orbital_period, planet_type, atmosphere, water_likelihood) -> float:

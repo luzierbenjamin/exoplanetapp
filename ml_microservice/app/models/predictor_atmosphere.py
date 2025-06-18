@@ -22,8 +22,8 @@ atmosphere_label_map = {
 model = DecisionTreeClassifier()
 model.fit(X, y)
 
-def predict_atmosphere(mass: float, radius: float, orbiral_period: float, plant_type: str) -> str:
-    plane_type_encoded = planet_type_map.get(planet_type, 0)
+def predict_atmosphere(mass: float, radius: float, orbital_period: float, planrt_type: str) -> str:
+    planet_type_encoded = planet_type_map.get(planet_type, 0)
     input_data = np.array([[mass, radius, orbital_period, planet_type_encoded]])
     prediction = model.predict(input_data)[0]
     return atmosphere_label_map[prediction]
