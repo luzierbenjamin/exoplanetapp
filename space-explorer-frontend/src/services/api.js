@@ -26,4 +26,9 @@ export const fetchPlanets = async () => {
     return response.data
 }
 
+export const fetchEnrichedPlanets = async () => {
+  const response = await api.get('/planets/enriched')
+  return response.data
+}
+
 export default api
