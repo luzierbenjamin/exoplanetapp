@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using SpaceExplorer.API.Models;
+using SpaceExplorer.API.Controllers;
 
 
 
@@ -32,6 +33,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
+builder.Services.AddHttpClient<MLController>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=spaceexplorer.db"));
 builder.Services.AddHttpClient<NasaDataService>();

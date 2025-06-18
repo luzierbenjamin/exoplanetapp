@@ -156,3 +156,4 @@ C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\
 C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\bench\exoplanetapp\SpaceExplorerAPI\spaceexplorer.api\obj\Debug\net9.0\SpaceExplorer.API.sourcelink.json

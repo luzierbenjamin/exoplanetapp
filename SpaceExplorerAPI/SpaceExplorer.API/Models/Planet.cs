@@ -11,5 +11,6 @@ namespace SpaceExplorer.API.Models
         public double? OrbitalPeriod { get; set; }
         public double? DistanceFromEarth { get; set; }
 
+        public AIResult AIResult { get; set; } 
     }
 }

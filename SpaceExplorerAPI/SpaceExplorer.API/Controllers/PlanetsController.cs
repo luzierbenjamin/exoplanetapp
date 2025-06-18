@@ -19,4 +19,30 @@ public class PlanetsController : ControllerBase
         var planets = await _context.Planets.Take(50).ToListAsync(); // only 50 for now
         return Ok(planets);
     }
+
+    [HttpGet("enriched")]
+    public async Task<IActionResult> GetEnrichedPlanets()
+    {
+        var data = await _context.Planets
+            .Include(p => p.AIResult)
+            .Select(p => new
+            {
+                p.Id,
+                p.Name,
+                p.DiscoveryYear,
+                p.Mass,
+                p.Radius,
+                p.OrbitalPeriod,
+                Predictions = new
+                {
+                    p.AIResult.PlanetType,
+                    p.AIResult.Atmoshpere,
+                    p.AIResult.WaterLikelihood,
+                    p.AIResult.BioScore
+                }
+            })
+            .ToListAsync();
+
+        return Ok(data);
+    }
 }
