@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9PQJRQ6p3QU=",
+  "dgSpecHash": "lMbq1twP9p8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\spaceexplorer.api\\SpaceExplorer.API.csproj",
+  "projectFilePath": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\SpaceExplorer.API\\SpaceExplorer.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bench\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\bench\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.6\\microsoft.aspnetcore.authentication.jwtbearer.9.0.6.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\spaceexplorer.api\\SpaceExplorer.API.csproj": {}
+    "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\SpaceExplorer.API\\SpaceExplorer.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\spaceexplorer.api\\SpaceExplorer.API.csproj": {
+    "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\SpaceExplorer.API\\SpaceExplorer.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\spaceexplorer.api\\SpaceExplorer.API.csproj",
+        "projectUniqueName": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\SpaceExplorer.API\\SpaceExplorer.API.csproj",
         "projectName": "SpaceExplorer.API",
-        "projectPath": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\spaceexplorer.api\\SpaceExplorer.API.csproj",
+        "projectPath": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\SpaceExplorer.API\\SpaceExplorer.API.csproj",
         "packagesPath": "C:\\Users\\bench\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\spaceexplorer.api\\obj\\",
+        "outputPath": "C:\\Users\\bench\\exoplanetapp\\SpaceExplorerAPI\\SpaceExplorer.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

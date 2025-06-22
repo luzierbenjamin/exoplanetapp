@@ -42,9 +42,9 @@ async def predict_bioscore_route(req: BioScorePredictRequest):
     result = predict_bioscore(
         mass=req.mass,
         radius=req.radius,
-        orbital_period=req.orbitalPeriod,
-        planet_type=req.planetType,
+        orbital_period=req.orbital_period,         
+        planet_type=req.planet_type,                
         atmosphere=req.atmosphere,
-        water_likelihood=req.waterLikelihood
+        water_likelihood=req.water_likelihood       
     )
     return BioScorePredictResponse(bioScore=result)

@@ -9,15 +9,14 @@ atmosphere_map = {
     "No Atmosphere": 3
 }
 
-# Dummy training data
 X = np.array([
-    [1.0, 1.0, 300, 0, 0, 0.9],   # High BioScore
-    [3.0, 2.0, 5000, 2, 1, 0.1],  # Low
+    [1.0, 1.0, 300, 0, 0, 0.9],   # input with water_likelihood = 0.9
+    [3.0, 2.0, 5000, 2, 1, 0.1],
     [0.8, 0.9, 1000, 1, 2, 0.3],
     [1.2, 1.1, 250, 0, 0, 0.8],
     [2.5, 2.3, 4000, 2, 1, 0.2]
 ])
-y = np.array([0.95, 0.2, 0.4, 0.9, 0.3])
+y = np.array([0.95, 0.2, 0.4, 0.9, 0.3])  # ← This is the BioScore
 
 model = GradientBoostingRegressor()
 model.fit(X, y)

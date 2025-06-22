@@ -1,7 +1,12 @@
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
-X = np.array([[1, 1], [0.5, 0.8], [3, 2.5], [0.9, 1.2]])
+X = np.array([
+    [1, 1, 365],
+    [0.5, 0.8, 200],
+    [3, 2.5, 600],
+    [0.9, 1.2, 300]
+])
 y = np.array([1, 0, 2, 1])  # 0 = Rocky, 1 = Gas, 2 = Ice
 
 model = LogisticRegression()
