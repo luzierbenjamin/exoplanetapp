@@ -1,6 +1,9 @@
 <template>
   <div class="p-6 text-white">
     <h2 class="text-2xl font-bold mb-4">🌌 Enriched Planet Dashboard</h2>
+    <div class="grid grid -cols-1 md:grid-cols-2 gap-4 mb-6">
+      <PlanetTypeDonut :enrichedPlanets="planets" />
+    </div>
     <div v-if="planets.length === 0">Loading...</div>
     <div v-else class="space-y-4">
       <div v-for="planet in planets" :key="planet.id" class="bg-gray-800 p-4 rounded shadow">
@@ -25,6 +28,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { fetchEnrichedPlanets } from '../services/api'
+import PlanetTypeDonut from '../components/charts/PlanetTypeDonut.vue'
 
 const planets = ref([])
 
