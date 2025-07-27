@@ -3,12 +3,14 @@ import Dashboard from '../views/Dashboard.vue';
 import Login from '../views/Login.vue';
 import PlanetList from '../views/PlanetList.vue'; 
 import PlanetDetail from '../views/PlanetDetail.vue';
+import CustomPredict from '../views/CustomPredict.vue'
 
 const routes = [
     { path: '/', redirect: '/dashboard' },
     { path: '/dashboard', component: Dashboard },
     { path: '/planets', name: 'Planets', component: PlanetList },
     { path: '/planet/:id', name: 'PlanetDetail', component: PlanetDetail, props: true },
+    { path: '/custom-predict', component: CustomPredict },
     { path: '/login', component: Login },
 ];
 

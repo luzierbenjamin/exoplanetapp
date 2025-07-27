@@ -5,6 +5,7 @@
       <ul class="flex space-x-6">
         <li><router-link to="/" class="hover:text-blue-400">Dashboard</router-link></li>
         <li><router-link to="/planets" class="hover:text-blue-400">Planets</router-link></li>
+        <li><router-link to="/custom-predict">Custom Predict</router-link></li>
       </ul>
     </div>
   </nav>
