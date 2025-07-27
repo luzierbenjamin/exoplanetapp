@@ -10,5 +10,6 @@ namespace SpaceExplorer.API.Dtos
         public double? pl_orbper { get; set; }
         public double? sy_dist { get; set; }
         public string? discoverymethod { get; set; }
+        public string? st_spectype { get; set; }
     }
 }

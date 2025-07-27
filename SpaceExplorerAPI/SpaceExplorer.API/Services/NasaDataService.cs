@@ -22,7 +22,7 @@ public class NasaDataService
         _context.Planets.RemoveRange(_context.Planets); // these two lines help put a limit for testing
         await _context.SaveChangesAsync();
 
-        var url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+30+pl_name,disc_year,pl_rade,pl_bmasse,pl_orbper,sy_dist,discoverymethod+FROM+pscomppars&format=json";
+        var url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+30+pl_name,disc_year,pl_rade,pl_bmasse,pl_orbper,sy_dist,discoverymethod,st_spectype+FROM+pscomppars&format=json";
         var client = _httpClientFactory.CreateClient();
         var response = await client.GetStringAsync(url);
 
@@ -36,7 +36,8 @@ public class NasaDataService
             Mass = p.pl_bmasse,
             OrbitalPeriod = p.pl_orbper,
             DistanceFromEarth = p.sy_dist,
-            DiscoveryMethod = p.discoverymethod
+            DiscoveryMethod = p.discoverymethod,
+            StarType = p.st_spectype
         }).ToList();
 
         _context.Planets.AddRange(eligablePlanets);

@@ -10,6 +10,8 @@ namespace SpaceExplorer.API.Models
         public double? Mass { get; set; }
         public double? OrbitalPeriod { get; set; }
         public double? DistanceFromEarth { get; set; }
+        public string? StarType { get; set; }
+
 
         public AIResult AIResult { get; set; } 
     }
