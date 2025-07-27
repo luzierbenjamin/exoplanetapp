@@ -6,7 +6,7 @@ namespace SpaceExplorer.API.Models
         public int PlanetID { get; set; }
         public Planet Planet { get; set; }
         public string PlanetType { get; set; }
-        public string Atmoshpere { get; set; }
+        public string Atmosphere { get; set; }
         public double? WaterLikelihood { get; set; }
         public double? BioScore { get; set; }
     }

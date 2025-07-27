@@ -35,6 +35,7 @@ public class AuthController : ControllerBase
             }),
             Expires = DateTime.UtcNow.AddHours(2),
             Issuer = _config["Jwt:Issuer"],
+            Audience = _config["Jwt:Audience"],
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
 

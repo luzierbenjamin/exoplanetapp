@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SpaceExplorer.API.Data;
 
-[Authorize]
+//[Authorize]
 [Route("api/[controller]")]
 public class PlanetsController : ControllerBase
 {
@@ -16,7 +16,7 @@ public class PlanetsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetPlanets()
     {
-        var planets = await _context.Planets.Take(50).ToListAsync(); // only 50 for now
+        var planets = await _context.Planets.Take(20).ToListAsync(); // only 20 for now
         return Ok(planets);
     }
 
@@ -36,7 +36,7 @@ public class PlanetsController : ControllerBase
                 Predictions = new
                 {
                     p.AIResult.PlanetType,
-                    p.AIResult.Atmoshpere,
+                    p.AIResult.Atmosphere,
                     p.AIResult.WaterLikelihood,
                     p.AIResult.BioScore
                 }

@@ -28,7 +28,7 @@ namespace SpaceExplorer.API.Controllers
 
             var response = await _httpClient.PostAsync("http://localhost:5001/predict", payload);
             if (!response.IsSuccessStatusCode)
-                return StatusCode((int)response.StatusCode, "PRediction failed");
+                return StatusCode((int)response.StatusCode, "Prediction failed");
 
             var content = await response.Content.ReadAsStringAsync();
             return Content(content, "application/json");
@@ -40,5 +40,6 @@ namespace SpaceExplorer.API.Controllers
     {
         public double Mass { get; set; }
         public double Radius { get; set; }
+        public double OrbitalPeriod { get; set; }
     }
 }

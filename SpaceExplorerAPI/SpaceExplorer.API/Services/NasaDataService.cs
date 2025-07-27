@@ -17,15 +17,18 @@ public class NasaDataService
         _context = context;
     }
 
-    public async Task FetchAndStorePlanetsAsync()
+    public async Task FetchAndStorePlanetsAsync(int limit = 10)
     {
-        var url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+pl_name,disc_year,pl_rade,pl_bmasse,pl_orbper,sy_dist,discoverymethod+FROM+pscomppars&format=json";
+        _context.Planets.RemoveRange(_context.Planets); // these two lines help put a limit for testing
+        await _context.SaveChangesAsync();
+
+        var url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+top+30+pl_name,disc_year,pl_rade,pl_bmasse,pl_orbper,sy_dist,discoverymethod+FROM+pscomppars&format=json";
         var client = _httpClientFactory.CreateClient();
         var response = await client.GetStringAsync(url);
 
         var planets = JsonSerializer.Deserialize<List<PlanetDto>>(response);
 
-        var planetEntities = planets.Select(p => new Planet
+        var eligablePlanets = planets.Select(p => new Planet //planetEntities is replaced with eligablePlanets
         {
             Name = p.pl_name,
             DiscoveryYear = p.disc_year,
@@ -36,10 +39,15 @@ public class NasaDataService
             DiscoveryMethod = p.discoverymethod
         }).ToList();
 
-        _context.Planets.AddRange(planetEntities);
+        _context.Planets.AddRange(eligablePlanets);
         await _context.SaveChangesAsync();
 
-        foreach (var planet in planetEntities)
+        var eligiblePlanets = eligablePlanets
+            .Where(p => p.Mass != null && p.Radius != null && p.OrbitalPeriod != null)
+            .Take(limit)
+            .ToList();
+
+        foreach (var planet in eligiblePlanets) //when done change back to planetEntities
         {
             //only run prediction if required fields exist
             if (planet.Mass == null || planet.Radius == null || planet.OrbitalPeriod == null)
@@ -74,9 +82,18 @@ public class NasaDataService
                 mass = planet.Mass,
                 radius = planet.Radius,
                 orbitalPeriod = planet.OrbitalPeriod,
+                planetType,
                 atmosphere,
                 waterLikelihood
             });
+
+            planet.AIResult = new AIResult // <-- 🆕 this block is the critical missing part
+            {
+                PlanetType = planetType,
+                Atmosphere = atmosphere,
+                WaterLikelihood = waterLikelihood,
+                BioScore = bioScore
+            };
 
             await _context.SaveChangesAsync();
         }

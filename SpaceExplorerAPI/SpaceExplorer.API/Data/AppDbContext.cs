@@ -13,6 +13,18 @@ namespace SpaceExplorer.API.Data
 
         public DbSet<AIResult> AIResults { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Planet>()
+                .HasOne(p => p.AIResult)
+                .WithOne(a => a.Planet)
+                .HasForeignKey<AIResult>(a => a.PlanetID);
+        }
+
+        
+
         
     }
 }

@@ -11,7 +11,7 @@ from app.models.predictor_bioscore import predict_bioscore
 
 router = APIRouter()
 
-@router.post("/predict", response_model=PredictResponse)
+@router.post("/predict-type", response_model=PredictResponse)
 async def predict(request: PredictRequest):
     prediction = predict_type(request.mass, request.radius, request.orbitalPeriod)
     return PredictResponse(planet_type=prediction)
@@ -42,9 +42,9 @@ async def predict_bioscore_route(req: BioScorePredictRequest):
     result = predict_bioscore(
         mass=req.mass,
         radius=req.radius,
-        orbital_period=req.orbital_period,         
-        planet_type=req.planet_type,                
+        orbital_period=req.orbitalPeriod,         
+        planet_type=req.planetType,                
         atmosphere=req.atmosphere,
-        water_likelihood=req.water_likelihood       
+        water_likelihood=req.waterLikelihood       
     )
     return BioScorePredictResponse(bioScore=result)

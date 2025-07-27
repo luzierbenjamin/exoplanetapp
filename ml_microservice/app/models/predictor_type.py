@@ -21,7 +21,7 @@ label_map = {
     2: "Gas Giant"
 }
 
-def predict_planet_type(mass: float, radius: float: orbital_period: float) -> str:
+def predict_planet_type(mass: float, radius: float, orbital_period: float) -> str:
     input_data = np.array([[mass, radius, orbital_period]])
     prediction = model.predict(input_data)[0]
     return label_map[prediction]

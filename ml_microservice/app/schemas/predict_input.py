@@ -30,10 +30,10 @@ class WaterPredictResponse(BaseModel):
 class BioScorePredictRequest(BaseModel):
     mass: float
     radius: float
-    orbital_period: float
-    planet_type: str
+    orbitalPeriod: float
+    planetType: str
     atmosphere: str
-    water_likelihood: float
+    waterLikelihood: float
 
 class BioScorePredictResponse(BaseModel):
     bioScore: float

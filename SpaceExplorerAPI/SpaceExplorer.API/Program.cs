@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var jwtKey = builder.Configuration["Jwt:Key"];
 var jwtIssuer = builder.Configuration["Jwt:Issuer"];
+var jwtAudience = builder.Configuration["Jwt:Audience"];
 
 builder.Services.AddAuthentication(options =>
 {
@@ -23,13 +24,15 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
-        ValidateAudience = false,
+        ValidateAudience = true,
         ValidateIssuerSigningKey = true,
         ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
 
     };
 });
+
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
@@ -37,6 +40,15 @@ builder.Services.AddHttpClient<MLController>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=spaceexplorer.db"));
 builder.Services.AddHttpClient<NasaDataService>();
+builder.Services.AddHttpClient(); 
+
+builder.Services.AddScoped<NasaDataService>(provider =>
+{
+    var db = provider.GetRequiredService<AppDbContext>();
+    var factory = provider.GetRequiredService<IHttpClientFactory>();
+    return new NasaDataService(factory, db);
+});
+
 
 builder.Services.AddCors(options =>
 {
@@ -49,6 +61,17 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+
+app.UseCors("AllowFrontend");
+
+app.UseHttpsRedirection();
+
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
+
 
 using (var scope = app.Services.CreateScope())
 {
@@ -66,33 +89,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseCors("AllowFrontend");
-app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
-app.MapControllers();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
